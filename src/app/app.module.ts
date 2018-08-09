@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { NumbersPickerComponent } from './numbers-picker/numbers-picker.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NumbersPickerComponent
   ],
   imports: [
     BrowserModule

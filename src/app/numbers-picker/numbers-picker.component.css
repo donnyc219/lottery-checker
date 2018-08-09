@@ -1,0 +1,14 @@
+button.number {
+    
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+div.number-wrapper {
+    display: inline-block;
+}
+
+div.number-view-wrapper {
+    width: 300px;
+    background-color: green;
+}
