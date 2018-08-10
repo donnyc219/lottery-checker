@@ -9,7 +9,7 @@ export class DataSharingService {
     public numberSource = new Subject<number>();
     constructor() { }
 
-    numberSelected(num: number){
+    numberSelected(num: any){
         this.numberSource.next(num);
     }
 
