@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DataSharingService } from './../Services/data-sharing.service';
 
 @Component({
     selector: 'app-numbers-picker',
@@ -8,14 +9,19 @@ import { Component, OnInit } from '@angular/core';
 export class NumbersPickerComponent implements OnInit {
 
     private numbers: Array<number> = new Array();
+    @Input() key: number;
   
-    constructor() { }
-
+    constructor(private dataSharing: DataSharingService) { }
+    
     ngOnInit() {
         // init the numbers
         for (let i = 0; i<49; i++) {
             this.numbers[i] = i+1;
         }
+    }
+
+    numberClicked(num: number){
+        this.dataSharing.numberSelected({number: num, key: this.key});
     }
 
 }
