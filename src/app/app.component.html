@@ -6,14 +6,14 @@
 </div>
 <div class="row">
     <div class="col">
-            <div style="margin-bottom:20px;">
-                <app-numbers-picker [key]="1"></app-numbers-picker>
-            </div>
+        <div style="margin-bottom:20px;">
+            <app-numbers-picker [key]="1"></app-numbers-picker>
+        </div>
     </div>
     <div class="col">
         <div>
-        <app-number-display-view [key]="1"></app-number-display-view>
-    </div>
+            <app-number-display-view [key]="1"></app-number-display-view>
+        </div>
     </div>
 </div>
 
@@ -29,7 +29,11 @@
                 <app-numbers-picker [key]="2"></app-numbers-picker>
             </div>
         </div>
-    <div class="col">
-        <app-number-display-view [key]="2"></app-number-display-view>
+        <div class="col">
+            <div>
+                <app-number-display-view [key]="2"></app-number-display-view>
+            </div>
+        </div>
     </div>
-</div>
+
+<button (click)="onCheck()">Check</button>
