@@ -23,9 +23,6 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     onCheck(){
-        console.log("check number now: " + this.userSelectedDisplay.numberArray);
-        console.log("check number now: " + this.loteryDisplay.numberArray);
-
         let res: Set<number> = this.checkMatchingNumber(this.loteryDisplay.numberArray, this.userSelectedDisplay.numberArray)
         res.forEach((val: number) => {
             console.log(`value: ${val}`);

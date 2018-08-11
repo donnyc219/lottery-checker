@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs/Subscription';
 export class NumberDisplayViewComponent implements OnInit {
 
     private dataSharingSub: Subscription;
+    private allNumbers: Array<Array<number>> = [];
     numberArray: Array<number> = [];
     @Input() key: number;
 
@@ -22,6 +23,11 @@ export class NumberDisplayViewComponent implements OnInit {
                 console.log(this.numberArray);
             }
         });
+    }
+
+    onDoneButton(){
+        this.allNumbers.push(this.numberArray);
+        this.numberArray = [];
     }
 
     ngOnDestroy(){
