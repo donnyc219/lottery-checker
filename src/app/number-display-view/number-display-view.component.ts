@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { DataSharingService } from './../Services/data-sharing.service';
-import { Subscription } from 'rxjs';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-number-display-view',
@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 export class NumberDisplayViewComponent implements OnInit {
 
     private dataSharingSub: Subscription;
-    private numberArray: Array<number> = [];
+    numberArray: Array<number> = [];
     @Input() key: number;
 
     constructor(private dataSharing: DataSharingService) { }

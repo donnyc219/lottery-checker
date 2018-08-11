@@ -8,7 +8,7 @@ import { DataSharingService } from './../Services/data-sharing.service';
 })
 export class NumbersPickerComponent implements OnInit {
 
-    private numbers: Array<number> = new Array();
+    private initialNumbers: Array<number> = new Array();
     @Input() key: number;
   
     constructor(private dataSharing: DataSharingService) { }
@@ -16,7 +16,7 @@ export class NumbersPickerComponent implements OnInit {
     ngOnInit() {
         // init the numbers
         for (let i = 0; i<49; i++) {
-            this.numbers[i] = i+1;
+            this.initialNumbers[i] = i+1;
         }
     }
 
