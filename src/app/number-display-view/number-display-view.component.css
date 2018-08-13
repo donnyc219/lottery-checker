@@ -2,3 +2,11 @@ div.number-element {
     display: inline-block;
     margin-right: 10px;
 }
+
+div.red-background {
+    background: red;
+}
+
+div.green-background {
+    background: green;
+}

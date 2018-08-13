@@ -12,6 +12,7 @@ export class NumberDisplayViewComponent implements OnInit {
     private dataSharingSub: Subscription;
     private allNumbers: Array<Array<number>> = [];
     numberArray: Array<number> = [];
+    // candidateNumbers = "red-background";
     @Input() key: number;
 
     constructor(private dataSharing: DataSharingService) { }
@@ -20,6 +21,7 @@ export class NumberDisplayViewComponent implements OnInit {
         this.dataSharingSub = this.dataSharing.numberSource.subscribe(num => { 
             if (num["key"]==this.key) {
                 this.numberArray.push(num["number"]);
+                // this.myclass = "green-background";
                 console.log(this.numberArray);
             }
         });

@@ -1,11 +1,12 @@
 <p>
   Chosen numbers:
 </p>
-<div *ngFor="let numArray of allNumbers">
-    <div [hidden]="numArray.length==0" class="number-component">
-        <div *ngFor="let number of numArray" class="number-element">{{number}}</div>
-        <button (click)="onDoneButton()">Done</button>
-    </div>
+<div [style.visibility]="numberArray.length==0? 'hidden' : 'visible'" class="number-component">
+    <div *ngFor="let number of numberArray" class="number-element">{{number}}</div>
+    <button (click)="onDoneButton()">Done</button>
+</div>
+<div *ngFor="let numbers of allNumbers">
+    <div *ngFor="let number of numbers" class="number-element">{{number}}</div>
 </div>
 
 
