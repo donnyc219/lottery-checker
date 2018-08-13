@@ -32,8 +32,16 @@ export class AppComponent implements OnInit, OnDestroy {
         let str = "";
         let allNumbers: Array<Array<number>> = this.userSelectedComp.allNumbers;
         let lotteryNumbers: Array<Array<number>> = this.lotteryComp.allNumbers;
-        
-        this.methodHelper.printArraysOfArray(allNumbers);
+        let arrayOfSet: Array<Set<number>> = [];
+
+        allNumbers.forEach((numbers: Array<number>) => {
+            let set: Set<number> = this.checkMatchingNumber(lotteryNumbers[0], numbers);
+            if (set.size>0) {
+                arrayOfSet.push(set);
+            }
+        });
+
+        this.methodHelper.printArrayOfSet(arrayOfSet);
     }
 
     private checkMatchingNumber(lotteryNumbers: Array<number>, userNumbers: Array<number>): Set<number>{
