@@ -7,12 +7,12 @@
 <div class="row">
     <div class="col">
         <div style="margin-bottom:20px;">
-            <app-numbers-picker [key]="1"></app-numbers-picker>
+            <app-numbers-picker [key]="'user-selected'"></app-numbers-picker>
         </div>
     </div>
     <div class="col">
         <div>
-            <app-number-display-view #selectedNum [key]="1"></app-number-display-view>
+            <app-number-display-view #selectedNum [key]="'user-selected'"></app-number-display-view>
         </div>
     </div>
 </div>
@@ -26,12 +26,12 @@
     <div class="row">
         <div class="col">
             <div style="margin-bottom:20px;">
-                <app-numbers-picker [key]="2"></app-numbers-picker>
+                <app-numbers-picker [key]="'lottery-numbers'"></app-numbers-picker>
             </div>
         </div>
         <div class="col">
             <div>
-                <app-number-display-view #lotteryNum [key]="2"></app-number-display-view>
+                <app-number-display-view #lotteryNum [key]="'lottery-numbers'"></app-number-display-view>
             </div>
         </div>
     </div>

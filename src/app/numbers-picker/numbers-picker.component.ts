@@ -9,7 +9,7 @@ import { DataSharingService } from './../Services/data-sharing.service';
 export class NumbersPickerComponent implements OnInit {
 
     private initialNumbers: Array<number> = new Array();
-    @Input() key: number;
+    @Input() key: string;
   
     constructor(private dataSharing: DataSharingService) { }
     

@@ -13,7 +13,7 @@ export class NumberDisplayViewComponent implements OnInit {
     private allNumbers: Array<Array<number>> = [];
     numberArray: Array<number> = [];
     // candidateNumbers = "red-background";
-    @Input() key: number;
+    @Input() key: string;
 
     constructor(private dataSharing: DataSharingService) { }
 
