@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { DataSharingService } from './Services/data-sharing.service';
 import { MethodsHelperService } from './Services/methods-helper.service';
+import { ApiService } from './Services/api.service';
+
+import { HttpClientModule } from '@angular/common/http'
 
 
 import { AppComponent } from './app.component';
@@ -15,9 +19,12 @@ import { NumberDisplayViewComponent } from './number-display-view/number-display
     NumberDisplayViewComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [DataSharingService, MethodsHelperService],
+
+  // add service here
+  providers: [DataSharingService, MethodsHelperService, ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
