@@ -25,19 +25,14 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(){
-        // this.http.testAPI().subscribe(data => {
-        //     console.log("you got this: " + data["test"]);
-        // });
+
         this.http.getLatestMegaMillion().subscribe((data: Powerball) => {
             console.log("what u got: " + data.winning_numbers[0]);
         });
     }
 
     onCheck(){
-        // let res: Set<number> = this.checkMatchingNumber(this.lotteryComp.numberArray, this.displayComp.numberArray)
-        // res.forEach((val: number) => {
-        //     console.log(`value: ${val}`);
-        // });
+
         let str = "";
         let allNumbers: Array<Array<number>> = this.userSelectedComp.allNumbers;
         let lotteryNumbers: Array<Array<number>> = this.lotteryComp.allNumbers;
