@@ -1,5 +1,5 @@
 <div class="number-view-wrapper">
     <div class="number-wrapper"  *ngFor="let number of initialNumbers">
-        <button class="number" (click)="numberClicked(number)">{{ number }}</button>
+        <button #numberButtons class="number" (click)="numberClicked(number)">{{ number }}</button>
     </div>
 </div>

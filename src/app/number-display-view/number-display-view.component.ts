@@ -18,18 +18,21 @@ export class NumberDisplayViewComponent implements OnInit {
     constructor(private dataSharing: DataSharingService) { }
 
     ngOnInit() {
+        // when a number is clicked, the value is transferred to here in the end
         this.dataSharingSub = this.dataSharing.numberSource.subscribe(num => { 
             if (num["key"]==this.key) {
                 this.numberArray.push(num["number"]);
-                // this.myclass = "green-background";
                 console.log(this.numberArray);
             }
         });
     }
 
     onDoneButton(){
+        this.numberArray.sort();
         this.allNumbers.push(this.numberArray);
         this.numberArray = [];
+        
+        this.dataSharing.doneButtonTapped();
     }
 
     ngOnDestroy(){
