@@ -12,8 +12,8 @@ export class NumberDisplayViewComponent implements OnInit {
     private dataSharingSub: Subscription;
     private allNumbers: Array<Array<number>> = [];
     numberArray: Array<number> = [];
-    // candidateNumbers = "red-background";
-    @Input() key: number;
+
+    @Input() key: string;
 
     constructor(private dataSharing: DataSharingService) { }
 
@@ -31,8 +31,8 @@ export class NumberDisplayViewComponent implements OnInit {
         this.numberArray.sort();
         this.allNumbers.push(this.numberArray);
         this.numberArray = [];
-        
-        this.dataSharing.doneButtonTapped();
+
+        this.dataSharing.doneButtonTapped({"key": this.key});
     }
 
     ngOnDestroy(){

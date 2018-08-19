@@ -18,8 +18,8 @@ export class DataSharingService {
         this.numberSource2.next(num);
     }
 
-    doneButtonTapped(){
-        this.doneButtonNotifier.next();
+    doneButtonTapped(key: any){
+        this.doneButtonNotifier.next(key);
     }
 
 }

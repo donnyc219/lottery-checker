@@ -12,9 +12,8 @@ export class NumbersPickerComponent implements OnInit, OnDestroy{
     private initialNumbers: Array<number> = new Array();
     private doneButtonSubscription: Subscription;
 
-    @Input() key: number;
-
     @ViewChildren("numberButtons") numberButtons;
+    @Input() key: string;
   
     constructor(private dataSharing: DataSharingService) { }
     
@@ -24,9 +23,12 @@ export class NumbersPickerComponent implements OnInit, OnDestroy{
             this.initialNumbers[i] = i+1;
         }
 
-        this.doneButtonSubscription = this.dataSharing.doneButtonNotifier.subscribe(() => {
+        this.doneButtonSubscription = this.dataSharing.doneButtonNotifier.subscribe((data: any) => {
             // when done button is clicked
-            this.resetAllButtons();
+            if (data["key"]==this.key){
+                this.resetAllButtons();
+            }
+            
         });
     }
 
