@@ -4,6 +4,8 @@ import { MethodsHelperService } from './Services/methods-helper.service';
 import { NumberDisplayViewComponent } from './number-display-view/number-display-view.component';
 import { Subscription } from 'rxjs/Subscription';
 import { all } from 'q';
+import { ApiService } from './Services/api.service' 
+import { Powerball } from './Interface/powerball' 
 
 @Component({
   selector: 'app-root',
@@ -16,19 +18,21 @@ export class AppComponent implements OnInit, OnDestroy {
     @ViewChild('selectedNum') userSelectedComp;
     @ViewChild('lotteryNum') lotteryComp;
 
-    constructor(private dataSharing: DataSharingService, private methodHelper: MethodsHelperService){
+    constructor(private dataSharing: DataSharingService, 
+        private methodHelper: MethodsHelperService,
+        private http: ApiService){
 
     }
 
     ngOnInit(){
 
+        this.http.getLatestMegaMillion().subscribe((data: Powerball) => {
+            console.log("what u got: " + data.winning_numbers[0]);
+        });
     }
 
     onCheck(){
-        // let res: Set<number> = this.checkMatchingNumber(this.lotteryComp.numberArray, this.displayComp.numberArray)
-        // res.forEach((val: number) => {
-        //     console.log(`value: ${val}`);
-        // });
+
         let str = "";
         let allNumbers: Array<Array<number>> = this.userSelectedComp.allNumbers;
         let lotteryNumbers: Array<Array<number>> = this.lotteryComp.allNumbers;
