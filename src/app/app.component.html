@@ -30,6 +30,10 @@
             </div>
         </div>
         <div class="col">
+            <div class="lottery-type"><a (click)="onMegamillion()"><img class="pointer" src="assets/img/megamillions.png"></a></div>
+            <div class="lottery-type"><a (click)="onPowerball()"><img class="pointer" src="assets/img/powerball.png"></a></div>
+        </div>
+        <div class="col">
             <div>
                 <app-number-display-view #lotteryNum [key]="'lottery-numbers'"></app-number-display-view>
             </div>

@@ -1,0 +1,11 @@
+.lottery-type img {
+    width: 150px;
+}
+
+div.lottery-type {
+    margin-bottom: 10px;
+}
+
+.pointer {
+    cursor: pointer;
+}

@@ -62,6 +62,14 @@ export class AppComponent implements OnInit, OnDestroy {
 
     }
 
+    onMegamillion(){
+        console.log("you clicked mega million");
+    }
+
+    onPowerball(){
+        console.log("you clicked powerball");
+    }
+
     ngOnDestroy(){
         
     }
