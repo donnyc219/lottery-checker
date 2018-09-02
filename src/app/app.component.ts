@@ -1,11 +1,13 @@
 import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { DataSharingService } from './Services/data-sharing.service';
 import { MethodsHelperService } from './Services/methods-helper.service';
-import { NumberDisplayViewComponent } from './number-display-view/number-display-view.component';
-import { Subscription } from 'rxjs/Subscription';
-import { all } from 'q';
+// import { NumberDisplayViewComponent } from './number-display-view/number-display-view.component';
+// import { Subscription } from 'rxjs/Subscription';
+// import { all } from 'q';
 import { ApiService } from './Services/api.service' 
-import { Powerball } from './Interface/powerball' 
+import { Powerball } from './Class/powerball' 
+import { Lottery } from './Class/lottery';
+import { Megamillion } from './Class/megamillion';
 
 @Component({
   selector: 'app-root',
@@ -17,6 +19,7 @@ export class AppComponent implements OnInit, OnDestroy {
     
     @ViewChild('selectedNum') userSelectedComp;
     @ViewChild('lotteryNum') lotteryComp;
+    lottery: Lottery;
 
     constructor(private dataSharing: DataSharingService, 
         private methodHelper: MethodsHelperService,
@@ -26,9 +29,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
     ngOnInit(){
 
-        this.http.getLatestMegaMillion().subscribe((data: Powerball) => {
-            console.log("what u got: " + data.winning_numbers[0]);
-        });
+        // this.http.getLatestMegaMillion().subscribe((data: Powerball) => {
+        //     console.log("what u got: " + data.winning_numbers[0]);
+        // });
     }
 
     onCheck(){
@@ -63,11 +66,15 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     onMegamillion(){
-        console.log("you clicked mega million");
+        this.http.getLatestMegaMillion().subscribe((data: Powerball) => {
+            this.lottery = data;
+        });
     }
 
     onPowerball(){
-        console.log("you clicked powerball");
+        this.http.getLatestPowerball().subscribe((data: Megamillion) => {
+            this.lottery = data;
+        });
     }
 
     ngOnDestroy(){

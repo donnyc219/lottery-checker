@@ -1,19 +1,22 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { DataSharingService } from './../Services/data-sharing.service';
 import { Subscription } from 'rxjs/Subscription';
+import { Lottery } from '../class/lottery';
 
 @Component({
   selector: 'app-number-display-view',
   templateUrl: './number-display-view.component.html',
   styleUrls: ['./number-display-view.component.css']
 })
-export class NumberDisplayViewComponent implements OnInit {
+export class NumberDisplayViewComponent implements OnInit, OnChanges {
 
     private dataSharingSub: Subscription;
     private allNumbers: Array<Array<number>> = [];
     numberArray: Array<number> = [];
 
+
     @Input() key: string;
+    @Input() lotteryObject: Lottery;
 
     constructor(private dataSharing: DataSharingService) { }
 
@@ -25,6 +28,13 @@ export class NumberDisplayViewComponent implements OnInit {
                 console.log(this.numberArray);
             }
         });
+    }
+
+    ngOnChanges(changes: SimpleChanges){
+
+        if (changes["lotteryObject"] && this.lotteryObject) {
+            this.numberArray = this.lotteryObject["winning_numbers"];
+        }
     }
 
     onDoneButton(){
