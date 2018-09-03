@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 import { DataSharingService } from './../Services/data-sharing.service';
 import { Subscription } from 'rxjs/Subscription';
-import { Lottery } from '../class/lottery';
+import { Lottery } from '../Class/lottery';
 
 @Component({
   selector: 'app-number-display-view',
