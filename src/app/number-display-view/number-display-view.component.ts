@@ -38,7 +38,10 @@ export class NumberDisplayViewComponent implements OnInit, OnChanges {
     }
 
     onDoneButton(){
-        this.numberArray.sort();
+        // this.numberArray.sort();
+        this.numberArray.sort( (a: number, b:number) => {
+            return a-b;
+        });
         this.allNumbers.push(this.numberArray);
         this.numberArray = [];
 

@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ApiService {
 
-    private domain: string = "http://localhost:8080"
+    private domain: string = "http://localhost:8000"
 
     constructor(private http: HttpClient) { }
 

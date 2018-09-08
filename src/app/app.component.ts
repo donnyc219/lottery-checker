@@ -66,13 +66,17 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     onMegamillion(){
-        this.http.getLatestMegaMillion().subscribe((data: Powerball) => {
+        this.http.getLatestMegaMillion().subscribe((data: Megamillion) => {
             this.lottery = data;
         });
     }
 
     onPowerball(){
-        this.http.getLatestPowerball().subscribe((data: Megamillion) => {
+        this.http.getLatestPowerball().subscribe((data: Powerball) => {
+            console.log("data:: " + data.draw_date);
+            console.log("data:: " + data.multiplier);
+            console.log("data:: " + data.winning_numbers);
+            
             this.lottery = data;
         });
     }
