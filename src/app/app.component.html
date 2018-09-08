@@ -44,3 +44,10 @@
     </div>
 
 <button (click)="onCheck()">Check and see console</button>
+
+<div class="winning-number-zone">
+
+    <div *ngIf="arrayOfSet.length>0; then winning_num else no_winning_num"></div>
+    <ng-template #winning_num>got something</ng-template>
+    <ng-template #no_winning_num>got nothing</ng-template>
+</div>

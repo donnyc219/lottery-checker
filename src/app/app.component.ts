@@ -20,6 +20,7 @@ export class AppComponent implements OnInit, OnDestroy {
     @ViewChild('selectedNum') userSelectedComp;
     @ViewChild('lotteryNum') lotteryComp;
     lottery: Lottery;
+    arrayOfSet: Array<Set<number>> = [];
 
     constructor(private dataSharing: DataSharingService, 
         private methodHelper: MethodsHelperService,
@@ -36,19 +37,18 @@ export class AppComponent implements OnInit, OnDestroy {
 
     onCheck(){
 
-        let str = "";
         let allNumbers: Array<Array<number>> = this.userSelectedComp.allNumbers;
         let lotteryNumbers: Array<Array<number>> = this.lotteryComp.allNumbers;
-        let arrayOfSet: Array<Set<number>> = [];
+        
 
         allNumbers.forEach((numbers: Array<number>) => {
             let set: Set<number> = this.checkMatchingNumber(lotteryNumbers[0], numbers);
             if (set.size>0) {
-                arrayOfSet.push(set);
+                this.arrayOfSet.push(set);   // the winning numbers
             }
         });
 
-        this.methodHelper.printArrayOfSet(arrayOfSet);
+        this.methodHelper.printArrayOfSet(this.arrayOfSet);
     }
 
     private checkMatchingNumber(lotteryNumbers: Array<number>, userNumbers: Array<number>): Set<number>{
@@ -73,9 +73,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
     onPowerball(){
         this.http.getLatestPowerball().subscribe((data: Powerball) => {
-            console.log("data:: " + data.draw_date);
-            console.log("data:: " + data.multiplier);
-            console.log("data:: " + data.winning_numbers);
             
             this.lottery = data;
         });

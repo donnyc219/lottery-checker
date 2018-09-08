@@ -9,3 +9,12 @@ div.lottery-type {
 .pointer {
     cursor: pointer;
 }
+
+.winning-number-zone {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.no-winning-number p {
+    color: red;
+}
